@@ -1,5 +1,5 @@
 import "./App.css";
-import { Button, ModalBody } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
