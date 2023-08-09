@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Button } from "react-bootstrap";
 import { FaMagnifyingGlass } from "react-icons/fa6";
+import FormattedDate from "./FormattedDate";
 import "./Weather.css";
 
 export default function Weather(props) {
@@ -10,9 +11,13 @@ export default function Weather(props) {
     setWeatherData({
       ready: true,
       temperature: response.data.main.temp,
+      minTemp: response.data.main.temp_min,
+      maxTemp: response.data.main.temp_max,
+      icon: `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
       wind: response.data.wind.speed,
       description: response.data.weather[0].description,
       humidity: response.data.main.humidity,
+      date: new Date(response.data.dt * 1000),
     });
   }
 
@@ -59,10 +64,10 @@ export default function Weather(props) {
             <div className="row g-3 current-weather">
               <div className="col-4">
                 <span className="current-range" id="current-high">
-                  H: 47°|
+                  H: {Math.round(weatherData.maxTemp)}°
                 </span>
                 <span className="current-range" id="current-low">
-                  L: 34°
+                  L: {Math.round(weatherData.minTemp)}°
                 </span>
                 <div id="current-location">Portland</div>
                 <div
@@ -79,7 +84,7 @@ export default function Weather(props) {
                 <div>
                   <img
                     id="main-icon"
-                    src="https://openweathermap.org/img/wn/10d@2x.png"
+                    src={weatherData.icon}
                     alt="Party Sunny with Clouds and Rain"
                   ></img>
                 </div>
@@ -88,8 +93,10 @@ export default function Weather(props) {
                 <div className="current-temp" id="current-temp">
                   {Math.round(weatherData.temperature)}ºF
                 </div>
-                <div className="current-day">Sunday</div>
-                <div className="current-time">10:46 AM PT</div>
+
+                <div className="current-day">
+                  <FormattedDate date={weatherData.date} />
+                </div>
               </div>
             </div>
           </h1>
