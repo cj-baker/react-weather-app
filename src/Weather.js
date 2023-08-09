@@ -1,15 +1,18 @@
 import React, { useState } from "react";
+import WeatherInfo from "./WeatherInfo";
 import axios from "axios";
 import { Button } from "react-bootstrap";
 import { FaMagnifyingGlass } from "react-icons/fa6";
-import FormattedDate from "./FormattedDate";
+
 import "./Weather.css";
 
 export default function Weather(props) {
-  let [weatherData, setWeatherData] = useState({ ready: false });
+  const [city, setCity] = useState(props.defaultCity);
+  const [weatherData, setWeatherData] = useState({ ready: false });
   function handleResponse(response) {
     setWeatherData({
       ready: true,
+      city: response.data.name,
       temperature: response.data.main.temp,
       minTemp: response.data.main.temp_min,
       maxTemp: response.data.main.temp_max,
@@ -20,13 +23,28 @@ export default function Weather(props) {
       date: new Date(response.data.dt * 1000),
     });
   }
+  function search() {
+    const apiKey = `1098686bcbb41f221c2aec962bdfe6fb`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+    axios.get(apiUrl).then(handleResponse);
+    return <div>"Loading...."</div>;
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    search();
+  }
+
+  function changeCity(event) {
+    setCity(event.target.value);
+  }
 
   if (weatherData.ready) {
     return (
       <div>
         <div className="content">
           <div className="row g-1 settings">
-            <form id="city-form" className="col-9">
+            <form id="city-form" className="col-9" onSubmit={handleSubmit}>
               <div className="p-3">
                 <div className="input-group mb-3">
                   <input
@@ -38,6 +56,7 @@ export default function Weather(props) {
                     aria-describedby="basic-addon2"
                     autoComplete="off"
                     autoFocus="on"
+                    onChange={changeCity}
                   />
                   <div className="input-group-append">
                     <Button className="btn search-button" type="submit">
@@ -59,55 +78,13 @@ export default function Weather(props) {
               </div>
             </div>
           </div>
-
-          <h1>
-            <div className="row g-3 current-weather">
-              <div className="col-4">
-                <span className="current-range" id="current-high">
-                  H: {Math.round(weatherData.maxTemp)}°
-                </span>
-                <span className="current-range" id="current-low">
-                  L: {Math.round(weatherData.minTemp)}°
-                </span>
-                <div id="current-location">Portland</div>
-                <div
-                  className="weather-details  text-capitalize"
-                  id="weather-condition"
-                >
-                  {weatherData.description}
-                </div>
-                <div className="weather-details" id="wind-speed">
-                  Wind: {Math.round(weatherData.wind)} mph
-                </div>
-              </div>
-              <div className="col-4">
-                <div>
-                  <img
-                    id="main-icon"
-                    src={weatherData.icon}
-                    alt="Party Sunny with Clouds and Rain"
-                  ></img>
-                </div>
-              </div>
-              <div className="col-4">
-                <div className="current-temp" id="current-temp">
-                  {Math.round(weatherData.temperature)}ºF
-                </div>
-
-                <div className="current-day">
-                  <FormattedDate date={weatherData.date} />
-                </div>
-              </div>
-            </div>
-          </h1>
+          <WeatherInfo data={weatherData} />
           <div className="weekly-weather" id="forecast"></div>
         </div>
       </div>
     );
   } else {
-    const apiKey = `1098686bcbb41f221c2aec962bdfe6fb`;
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=imperial`;
-    axios.get(apiUrl).then(handleResponse);
-    return <div>"Loading...."</div>;
+    search();
+    return "Loading....";
   }
 }

@@ -10,10 +10,14 @@ export default function App() {
         <Weather defaultCity="Seattle" />
       </div>
       <small className="source-link">
+        This app was coded by
         <a href="https://github.com/cj-baker/Weather-Application">
-          Source Code
+          Casey Baker
         </a>
-        <span className="coder">by Casey Baker </span>
+        and is
+        <a href="https://github.com/cj-baker/Weather-Application">
+          Open Sourced
+        </a>
       </small>
     </body>
   );
