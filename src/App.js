@@ -7,7 +7,7 @@ export default function App() {
   return (
     <body className="App">
       <div className="container">
-        <Weather />
+        <Weather defaultCity="Seattle" />
       </div>
       <small className="source-link">
         <a href="https://github.com/cj-baker/Weather-Application">

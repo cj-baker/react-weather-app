@@ -4,15 +4,19 @@ import { Button } from "react-bootstrap";
 import { FaMagnifyingGlass } from "react-icons/fa6";
 import "./Weather.css";
 
-export default function Weather() {
-  let [ready, setReady] = useState(false);
-  let [temperature, setTemperature] = useState(null);
+export default function Weather(props) {
+  let [weatherData, setWeatherData] = useState({ ready: false });
   function handleResponse(response) {
-    setTemperature(response.data.main.temp);
-    setReady(true);
+    setWeatherData({
+      ready: true,
+      temperature: response.data.main.temp,
+      wind: response.data.wind.speed,
+      description: response.data.weather[0].description,
+      humidity: response.data.main.humidity,
+    });
   }
 
-  if (ready) {
+  if (weatherData.ready) {
     return (
       <div>
         <div className="content">
@@ -61,11 +65,14 @@ export default function Weather() {
                   L: 34°
                 </span>
                 <div id="current-location">Portland</div>
-                <div className="weather-details" id="weather-condition">
-                  Partly Cloudy
+                <div
+                  className="weather-details  text-capitalize"
+                  id="weather-condition"
+                >
+                  {weatherData.description}
                 </div>
                 <div className="weather-details" id="wind-speed">
-                  Wind: 4 mph
+                  Wind: {Math.round(weatherData.wind)} mph
                 </div>
               </div>
               <div className="col-4">
@@ -79,7 +86,7 @@ export default function Weather() {
               </div>
               <div className="col-4">
                 <div className="current-temp" id="current-temp">
-                  {Math.round(temperature)}ºF
+                  {Math.round(weatherData.temperature)}ºF
                 </div>
                 <div className="current-day">Sunday</div>
                 <div className="current-time">10:46 AM PT</div>
@@ -91,9 +98,8 @@ export default function Weather() {
       </div>
     );
   } else {
-    let city = "Seattle";
     const apiKey = `1098686bcbb41f221c2aec962bdfe6fb`;
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=imperial`;
     axios.get(apiUrl).then(handleResponse);
     return <div>"Loading...."</div>;
   }
