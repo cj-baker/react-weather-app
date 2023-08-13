@@ -62,9 +62,10 @@ h1 {
   align-items: center;
   justify-content: center;
 }
-#main-icon {
+.react-icons {
   margin-left: 30px;
   margin-right: 50px;
+  font-size: 300%;
 }
 #current-location-button {
   font-size: 12px;
@@ -78,4 +79,7 @@ h1 {
 }
 .forecast-icons {
   font-size: 40px;
+}
+.WeatherIcon {
+  height: 48px;
 }
