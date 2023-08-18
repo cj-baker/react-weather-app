@@ -10,14 +10,10 @@ export default function App() {
         <Weather defaultCity="Seattle" />
       </div>
       <small className="source-link">
-        This app was coded by
-        <a href="https://github.com/cj-baker/Weather-Application">
-          Casey Baker
-        </a>
-        and is
-        <a href="https://github.com/cj-baker/Weather-Application">
-          Open Sourced
-        </a>
+        <span>This app was coded by </span>
+        <a href="https://github.com/cj-baker">Casey Baker</a>
+        <span> and is </span>
+        <a href="https://github.com/cj-baker/react-weather-app">Open Sourced</a>
       </small>
     </body>
   );
