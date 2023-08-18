@@ -1,12 +1,28 @@
 .App {
+  background-color: rgb(28, 55, 87);
+  display: block;
   font-family: sans-serif;
   text-align: center;
-  background-color: rgb(28, 55, 87);
+  padding-top: 40px;
+}
+.container {
+  min-width: 700px;
+  height: fit-content;
+  text-shadow: 2px 2px rgb(18, 35, 56);
+  border-style: solid;
+  border-color: whitesmoke;
+  border-width: 2px;
+  border-radius: 15px;
+  background-size: cover;
+  background: linear-gradient(
+    109.6deg,
+    rgb(44, 83, 131) 18.9%,
+    rgb(95, 175, 201) 91.1%
+  );
+  box-shadow: 5px 5px rgb(18, 35, 56);
   color: whitesmoke;
-  padding: 40px;
 }
 
 .source-link {
-  display: block;
-  margin: 0 auto;
+  color: whitesmoke;
 }

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import WeatherInfo from "./WeatherInfo";
 import axios from "axios";
 import { Button } from "react-bootstrap";
-import { FaMagnifyingGlass, FaLocationCrosshairs } from "react-icons/fa6";
+import { FaMagnifyingGlass } from "react-icons/fa6";
 import "./Weather.css";
 
 export default function Weather(props) {
