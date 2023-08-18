@@ -13,7 +13,6 @@ import {
   FaSnowflake,
   FaSmog,
 } from "react-icons/fa6";
-import "./Weather.css";
 
 export default function WeatherIcon(props) {
   console.log(props.code);

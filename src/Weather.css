@@ -1,6 +1,6 @@
 .container {
   display: block;
-  margin: 50px auto;
+  margin: 40px auto;
   margin-bottom: 5px;
   min-width: 700px;
   width: fit-content;
@@ -20,7 +20,7 @@
   box-shadow: 5px 5px rgb(18, 35, 56);
 }
 h1 {
-  margin-bottom: 30px;
+  margin-bottom: 0px;
 }
 
 .content {
@@ -41,6 +41,9 @@ h1 {
   color: rgb(33, 64, 101) !important;
   background-color: #5ba8c4 !important;
   border-color: rgb(33, 64, 101) !important;
+}
+#current-location {
+  font-size: 54px;
 }
 
 .current-day,
@@ -68,9 +71,9 @@ h1 {
   font-size: 300%;
 }
 #current-location-button {
-  font-size: 12px;
-  height: min-content;
-  padding: 8px;
+  font-size: 18px;
+  height: max-content;
+
   border-color: rgb(33, 64, 101);
   box-shadow: 2px 2px rgb(33, 64, 101, 70%);
 }

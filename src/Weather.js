@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import WeatherInfo from "./WeatherInfo";
 import axios from "axios";
 import { Button } from "react-bootstrap";
-import { FaMagnifyingGlass } from "react-icons/fa6";
-
+import { FaMagnifyingGlass, FaLocationCrosshairs } from "react-icons/fa6";
 import "./Weather.css";
 
 export default function Weather(props) {
@@ -44,7 +43,7 @@ export default function Weather(props) {
       <div>
         <div className="content">
           <div className="row g-1 settings">
-            <form id="city-form" className="col-9" onSubmit={handleSubmit}>
+            <form id="city-form" className="col-12" onSubmit={handleSubmit}>
               <div className="p-3">
                 <div className="input-group mb-3">
                   <input
@@ -66,17 +65,6 @@ export default function Weather(props) {
                 </div>
               </div>
             </form>
-            <div className="col-3">
-              <div className="p-3">
-                <Button
-                  type="button"
-                  className="btn btn-secondary btn-sm"
-                  id="current-location-button"
-                >
-                  Current Location
-                </Button>
-              </div>
-            </div>
           </div>
           <WeatherInfo data={weatherData} />
           <div className="weekly-weather" id="forecast"></div>
