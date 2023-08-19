@@ -40,35 +40,30 @@ export default function Weather(props) {
 
   if (weatherData.ready) {
     return (
-      <div>
-        <div className="content">
-          <div className="row g-1 settings">
-            <form id="city-form" className="col-12" onSubmit={handleSubmit}>
-              <div className="p-3">
-                <div className="input-group mb-3">
-                  <input
-                    id="city-input"
-                    type="text"
-                    className="form-control search-bar"
-                    placeholder="Search for a city"
-                    aria-label="Search for a city"
-                    aria-describedby="basic-addon2"
-                    autoComplete="off"
-                    autoFocus="on"
-                    onChange={changeCity}
-                  />
-                  <div className="input-group-append">
-                    <Button className="btn search-button" type="submit">
-                      <FaMagnifyingGlass />
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            </form>
+      <div className="Weather">
+        <form id="city-form" className="col-12" onSubmit={handleSubmit}>
+          <div className="input-group mb-3">
+            <input
+              id="city-input"
+              type="text"
+              className="form-control search-bar"
+              placeholder="Search for a city"
+              aria-label="Search for a city"
+              aria-describedby="basic-addon2"
+              autoComplete="off"
+              autoFocus="on"
+              onChange={changeCity}
+            />
+            <div className="input-group-append">
+              <Button className="btn search-button" type="submit">
+                <FaMagnifyingGlass />
+              </Button>
+            </div>
           </div>
-          <WeatherInfo data={weatherData} />
-          <div className="weekly-weather" id="forecast"></div>
-        </div>
+        </form>
+
+        <WeatherInfo data={weatherData} />
+        <div className="weekly-weather" id="forecast"></div>
       </div>
     );
   } else {

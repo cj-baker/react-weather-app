@@ -3,11 +3,10 @@
   display: block;
   font-family: sans-serif;
   text-align: center;
-  padding-top: 40px;
+  padding: 20px;
 }
 .container {
-  min-width: 700px;
-  height: fit-content;
+  max-width: 700px !important;
   text-shadow: 2px 2px rgb(18, 35, 56);
   border-style: solid;
   border-color: whitesmoke;
@@ -25,4 +24,9 @@
 
 .source-link {
   color: whitesmoke;
+}
+@media (max-width: 600px) {
+  .source-link {
+    font-size: 12px;
+  }
 }

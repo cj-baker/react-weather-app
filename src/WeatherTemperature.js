@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import { ButtonGroup } from "react-bootstrap";
+import "./Weather.css";
 
 export default function WeatherTemperature(props) {
   const [unit, setUnit] = useState("fahrenheit");
@@ -23,10 +24,8 @@ export default function WeatherTemperature(props) {
           </ButtonGroup>
         </div>
 
-        <div className="current-temp" id="current-temp">
-          {Math.round(props.fahrenheit)}°F
-        </div>
-        <div className="current-range" id="current-high">
+        <h1 className="current-temp">{Math.round(props.fahrenheit)}°F</h1>
+        <div className="weather-details" id="current-range">
           H: {Math.round(props.high)}° | L: {Math.round(props.low)}°
         </div>
       </div>

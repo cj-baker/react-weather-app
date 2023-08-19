@@ -1,10 +1,5 @@
-h1 {
-  margin-bottom: 0px;
-}
-
-.content {
-  margin-right: 50px;
-  margin-left: 50px;
+form {
+  margin-top: 20px;
 }
 .search-bar,
 .search-button {
@@ -21,40 +16,16 @@ h1 {
   background-color: #5ba8c4 !important;
   border-color: rgb(33, 64, 101) !important;
 }
-#current-location {
-  font-size: 54px;
-}
-
-.current-day,
-.current-time,
-.current-range,
-.forecast-temperatures {
-  font-size: 18px;
-}
-.weather-details {
-  font-size: 15px;
-  text-transform: capitalize;
-}
-
-.current-temp {
-  font-size: 72px;
-}
 .current-weather {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .react-icons {
-  margin-left: 30px;
-  margin-right: 50px;
-  font-size: 300%;
+  font-size: 600%;
 }
-#current-location-button {
-  font-size: 18px;
-  height: max-content;
-
-  border-color: rgb(33, 64, 101);
-  box-shadow: 2px 2px rgb(33, 64, 101, 70%);
+.current-temp {
+  font-size: 60px;
 }
 .weekly-weather {
   margin: 30px auto;
@@ -62,6 +33,13 @@ h1 {
 .forecast-icons {
   font-size: 40px;
 }
-.WeatherIcon {
-  height: 48px;
+
+@media (max-width: 600px) {
+  .current-temp {
+    font-size: 40px;
+  }
+  .react-icons {
+    font-size: 600%;
+    margin-bottom: 10px;
+  }
 }
