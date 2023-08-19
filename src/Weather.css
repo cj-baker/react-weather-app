@@ -1,3 +1,6 @@
+.Weather {
+  padding-bottom: 20px;
+}
 form {
   margin-top: 20px;
 }
@@ -21,17 +24,18 @@ form {
   align-items: center;
   justify-content: center;
 }
+.weather-details,
+.date-time {
+  font-size: 18px;
+}
 .react-icons {
   font-size: 600%;
 }
 .current-temp {
   font-size: 60px;
-}
-.weekly-weather {
-  margin: 30px auto;
-}
-.forecast-icons {
-  font-size: 40px;
+  margin-bottom: 0;
+  margin-top: 10px;
+  line-height: 1;
 }
 
 @media (max-width: 600px) {
@@ -41,5 +45,9 @@ form {
   .react-icons {
     font-size: 600%;
     margin-bottom: 10px;
+  }
+  .weather-details,
+  .date-time {
+    font-size: 14px;
   }
 }

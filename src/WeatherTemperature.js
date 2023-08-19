@@ -48,7 +48,7 @@ export default function WeatherTemperature(props) {
         <div className="current-temp" id="current-temp">
           {Math.round(celsius)}°C
         </div>
-        <div className="current-range" id="current-high">
+        <div className="current-range">
           H: {Math.round(celsiusHigh)}° | L: {Math.round(celsiusLow)}°
         </div>
       </div>

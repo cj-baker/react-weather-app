@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import WeatherInfo from "./WeatherInfo";
+import WeatherForecast from "./WeatherForecast";
 import axios from "axios";
 import { Button } from "react-bootstrap";
 import { FaMagnifyingGlass } from "react-icons/fa6";
@@ -12,6 +13,7 @@ export default function Weather(props) {
     setWeatherData({
       ready: true,
       city: response.data.name,
+      coordinates: response.data.coord,
       temperature: response.data.main.temp,
       minTemp: response.data.main.temp_min,
       maxTemp: response.data.main.temp_max,
@@ -63,7 +65,7 @@ export default function Weather(props) {
         </form>
 
         <WeatherInfo data={weatherData} />
-        <div className="weekly-weather" id="forecast"></div>
+        <WeatherForecast coordinates={weatherData.coordinates} />
       </div>
     );
   } else {

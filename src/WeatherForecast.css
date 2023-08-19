@@ -1,0 +1,10 @@
+.WeatherForecast {
+  margin-top: 20px;
+}
+.forecast-icons {
+  font-size: 30%;
+}
+.temperature-low {
+  margin-left: 5px;
+  opacity: 70%;
+}
