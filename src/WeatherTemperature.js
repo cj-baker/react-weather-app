@@ -1,6 +1,4 @@
-import React, { useState } from "react";
-import Button from "react-bootstrap/Button";
-import { ButtonGroup } from "react-bootstrap";
+import React from "react";
 import "./Weather.css";
 
 export default function WeatherTemperature(props) {
