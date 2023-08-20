@@ -23,14 +23,13 @@ export default function WeatherForecast(props) {
         <Row>
           {forecast.map(function (forecastDay, index) {
             if (index < 6) {
+              return (
+                <Col xs="4" sm key={index}>
+                  <WeatherForecastDay data={forecastDay} />
+                </Col>
+              );
             }
-            return (
-              <Col xs="4" sm key={index}>
-                <WeatherForecastDay data={forecastDay} />
-              </Col>
-            );
           })}
-          }
         </Row>
       </div>
     );

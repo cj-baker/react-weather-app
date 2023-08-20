@@ -21,8 +21,12 @@ form {
 }
 .current-weather {
   display: flex;
-  align-items: center;
+  align-items: end;
   justify-content: center;
+}
+.current-location {
+  font-size: 50px;
+  margin-bottom: 0;
 }
 .weather-details,
 .date-time {
@@ -32,15 +36,28 @@ form {
   font-size: 600%;
 }
 .current-temp {
-  font-size: 60px;
+  font-size: 120px;
   margin-bottom: 0;
   margin-top: 10px;
   line-height: 1;
 }
+.fahrenheit {
+  position: relative;
+  top: -50px;
+  font-size: 50px;
+}
 
 @media (max-width: 600px) {
   .current-temp {
-    font-size: 40px;
+    font-size: 80px;
+  }
+  .fahrenheit {
+    position: relative;
+    top: -35px;
+    font-size: 30px;
+  }
+  .current-location {
+    font-size: 24px;
   }
   .react-icons {
     font-size: 600%;

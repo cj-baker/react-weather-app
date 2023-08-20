@@ -22,14 +22,14 @@ export default function WeatherInfo(props) {
           Wind: {Math.round(props.data.wind)} mph
         </div>
       </Col>
-      <Col xs={{ span: 12, order: 0 }} sm={{ span: 2, order: 1 }}>
+      <Col xs={{ span: 12, order: 0 }} sm={{ span: 3, order: 1 }}>
         <div>
           <WeatherIcon code={props.data.icon} src={props.data.description} />
         </div>
       </Col>
       <Col xs={{ span: 5, order: 2 }} sm={{ span: 4, order: 2 }}>
         <WeatherTemperature
-          fahrenheit={props.data.temperature}
+          temp={props.data.temperature}
           high={props.data.maxTemp}
           low={props.data.minTemp}
         />
