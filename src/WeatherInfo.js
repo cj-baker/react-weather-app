@@ -1,16 +1,17 @@
 import React from "react";
 import { Row, Col } from "react-bootstrap";
-import FormattedDate from "./FormattedDate";
+import moment from "moment";
 import WeatherIcon from "./WeatherIcon";
 import WeatherTemperature from "./WeatherTemperature";
 import "./Weather.css";
 
 export default function WeatherInfo(props) {
+  let currentDateTime = moment().format("dddd h:mm A");
   return (
     <Row className="current-weather">
       <Col xs={{ span: 5, order: 1 }} sm={{ span: 4, order: 0 }}>
         <h1 className="current-location">{props.data.city}</h1>
-        <FormattedDate date={props.data.date} />
+        <div className="date-time">{currentDateTime}</div>
         <div
           className="weather-details  text-capitalize"
           id="weather-condition"
