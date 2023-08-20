@@ -16,14 +16,13 @@ export default function WeatherForecast(props) {
     setForecast(reponse.data.daily);
     setReady(true);
   }
-  function setDays(props) {}
 
   if (ready) {
     return (
       <div className="WeatherForecast">
         <Row>
           {forecast.map(function (forecastDay, index) {
-            if (index < 7 && index > 0)
+            if (index < 6)
               return (
                 <Col xs="4" sm key={index}>
                   <WeatherForecastDay data={forecastDay} />
